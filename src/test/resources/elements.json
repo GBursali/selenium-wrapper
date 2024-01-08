@@ -1,0 +1,4 @@
+{
+  "LoginButton": "div form button[type='submit']",
+  "LoginXp": "//div//form//button[@type='submit']"
+}

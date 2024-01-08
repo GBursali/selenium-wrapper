@@ -60,11 +60,11 @@ public class LocatorFinder {
      *
      * @param key The key corresponding to the desired locator in the JSON configuration.
      * @return A By instance representing the located element.
-     * @throws IllegalStateException If the key is not present in the JSON configuration.
+     * @throws IllegalArgumentException If the key is not present in the JSON configuration.
      */
     public By locate(String key) {
         if (!baseJson.has(key))
-            throw new IllegalStateException("JSON does not have the key: " + key);
+            throw new IllegalArgumentException("JSON does not have the key: " + key);
         String locator = baseJson.get(key).getAsString();
         return returnWithType(locator);
     }

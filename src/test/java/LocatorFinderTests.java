@@ -11,6 +11,9 @@ public class LocatorFinderTests {
     @Test
     public void locateLoginButtonWithCss(){
         final String expected = "div form button[type='submit']";
+
+        LocatorFinder.ofFile(Path.of("src", "test", "resources", "elements.json"))
+                .locate("LoginButton");
         var actual = locator.locate("LoginButton");
         Assertions.assertEquals(By.cssSelector(expected),actual);
     }

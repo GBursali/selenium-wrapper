@@ -2,10 +2,13 @@ package space.gbsdev.locators;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -64,6 +67,30 @@ public class LocatorFinder {
             throw new IllegalStateException("JSON does not have the key: " + key);
         String locator = baseJson.get(key).getAsString();
         return returnWithType(locator);
+    }
+
+    /**
+     * Locates a {@link WebElement} based on the provided key using the Selenium WebDriver.
+     *
+     * @param driver The WebDriver instance used to find the element.
+     * @param key    The key corresponding to the desired locator in the JSON configuration.
+     * @return A {@link WebElement} instance representing the located element.
+     * @throws IllegalStateException If the key is not present in the JSON configuration.
+     */
+    public WebElement locateElement(WebDriver driver, String key){
+        return locate(key).findElement(driver);
+    }
+
+    /**
+     * Locates a list of {@link WebElement}s based on the provided key using the Selenium WebDriver.
+     *
+     * @param driver The WebDriver instance used to find the elements.
+     * @param key    The key corresponding to the desired locator in the JSON configuration.
+     * @return A list of {@link WebElement} instances representing the located elements.
+     * @throws IllegalStateException If the key is not present in the JSON configuration.
+     */
+    public List<WebElement> locateElements(WebDriver driver, String key){
+        return locate(key).findElements(driver);
     }
 }
 

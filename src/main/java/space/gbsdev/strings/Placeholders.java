@@ -18,12 +18,12 @@ public class Placeholders {
     /**
      * Default value for a Prefix
      */
-    private String prefix = "{";
+    private String prefix = "<";
 
     /**
      * Default value for a Suffix
      */
-    private String suffix = "}";
+    private String suffix = ">";
 
     /**
      * Map to store placeholders and their corresponding value suppliers.

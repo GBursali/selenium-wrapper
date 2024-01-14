@@ -3,6 +3,7 @@ package space.gbsdev.core;
 /**
  * Utility class that contains default fail messages.
  */
+@SuppressWarnings("unused")
 public class FailMessage {
     /**
      * Goal we wanted to achieve with this validator.

@@ -3,6 +3,7 @@ package space.gbsdev.core;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class Validators {
     protected Validators(){/*Hide*/}
 

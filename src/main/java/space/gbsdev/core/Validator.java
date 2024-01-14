@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 import java.util.function.BiPredicate;
 import java.util.function.Function;
-
+@SuppressWarnings("unused")
 public class Validator<T> {
 
     private final T actual;

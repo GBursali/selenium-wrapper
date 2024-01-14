@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
  *
  * @param <T> The type of the concrete locator class.
  */
+@SuppressWarnings("unused")
 public abstract class Locator<T extends Locator> {
     protected StringBuilder innerLocator = new StringBuilder();
 

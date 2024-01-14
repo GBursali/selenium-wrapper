@@ -3,6 +3,7 @@ package space.gbsdev;
 import org.junit.Assert;
 import space.gbsdev.core.Validators;
 
+@SuppressWarnings("unused")
 public class Validation extends Assert {
     private Validation() {
         // Private constructor to enforce the use of the builder.

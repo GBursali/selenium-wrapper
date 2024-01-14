@@ -3,6 +3,7 @@ package space.gbsdev.locators.chain;
 import org.openqa.selenium.By;
 import space.gbsdev.strings.MatchType;
 
+@SuppressWarnings("unused")
 public class Css extends Locator<Css> {
     /**
      * Creates a new instance of {@code Css} as a fallback when needed.

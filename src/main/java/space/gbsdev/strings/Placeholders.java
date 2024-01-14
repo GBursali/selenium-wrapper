@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 /**
  * Utility class for replacing placeholders in strings.
  */
+@SuppressWarnings("unused")
 public class Placeholders {
     /**
      * Default value for a Prefix
@@ -59,7 +60,7 @@ public class Placeholders {
                 place.add(key, properties.getProperty(key));
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalArgumentException("Given path is not valid: "+path);
         }
         return place;
     }

@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 /**
  * Utility class for finding locators in Selenium based on a JSON configuration.
  */
+@SuppressWarnings("unused")
 public class LocatorFinder {
     private static final Pattern xpathPattern = Pattern.compile("^((body)|(\\/\\/)).*");
     private final JsonObject baseJson;

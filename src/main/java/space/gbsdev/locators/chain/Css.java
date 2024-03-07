@@ -3,6 +3,8 @@ package space.gbsdev.locators.chain;
 import org.openqa.selenium.By;
 import space.gbsdev.strings.MatchType;
 
+import static space.gbsdev.strings.MatchType.IS;
+
 public class Css extends Locator<Css> {
     /**
      * Creates a new instance of {@code Css} as a fallback when needed.
@@ -62,7 +64,7 @@ public class Css extends Locator<Css> {
      * @return A new instance of {@code Css} with the ":nth-child()" pseudo-class appended.
      */
     public Css index(int index){
-        return addThenFallback(":nth-child(%d)".formatted(index));
+        return addThenFallback(String.format(":nth-child(%d)",index));
     }
 
 
@@ -99,7 +101,7 @@ public class Css extends Locator<Css> {
      * @return A new instance of Css with the added attribute selector.
      */
     public Css attr(String attributeName, Object value) {
-        return attr(attributeName, value, MatchType.IS);
+        return attr(attributeName, value, IS);
     }
 
     /**
@@ -160,11 +162,12 @@ public class Css extends Locator<Css> {
      * @return The CSS selector sign.
      */
     private String getSignOf(MatchType type) {
-        return switch (type) {
-            case IS -> "=";
-            case HAS -> "*=";
-            case STARTS_WITH -> "^=";
-            case ENDS_WITH -> "$=";
-        };
+        switch (type){
+            case IS: return "=";
+            case HAS: return "*=";
+            case STARTS_WITH: return "^=";
+            case ENDS_WITH: return "$=";
+            default: return null;
+        }
     }
 }

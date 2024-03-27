@@ -36,46 +36,39 @@ public class ExcelTable {
 	private final int headerIndex;
 
 	/**
-	 * Constructs a new ExcelTable associated with the given ExcelSheet, using the default sheet index (1) and header index (1).
+	 * Constructs a new ExcelTable associated with the given ExcelSheet, using the default header index (1).
 	 *
 	 * @param sheet The ExcelSheet representing the Excel document.
 	 */
 	public ExcelTable(ExcelSheet sheet){
-		this(sheet,ExcelFile.DEFAULT_SHEET_NUMBER);
-	}
-
-	/**
-	 * Constructs a new ExcelTable with the given ExcelFile and sheet index, using the default header index (1).
-	 *
-	 * @param sheet The ExcelFile representing the Excel document.
-	 * @param sheetIndex The index of the sheet within the Excel document.
-	 */
-	public ExcelTable(ExcelSheet sheet,int sheetIndex){
-		this(sheet,sheetIndex,DEFAULT_HEADER_INDEX);
+		this(sheet,DEFAULT_HEADER_INDEX);
 	}
 
 	/**
 	 * Constructs a new ExcelTable with the given ExcelSheet, sheet index, and header index.
 	 *
 	 * @param sheet       The ExcelSheet representing the Excel document.
-	 * @param sheetIndex  The index of the sheet within the Excel document.
 	 * @param headerIndex The index of the header row in the table.
 	 */
-	public ExcelTable(ExcelSheet sheet,int sheetIndex,int headerIndex){
+	public ExcelTable(ExcelSheet sheet,int headerIndex){
 		Objects.requireNonNull(sheet, "sheet cannot be null");
-		if (sheetIndex < 0 || headerIndex < 1) {
+		if (headerIndex < 1) {
 			throw new IllegalArgumentException("Invalid sheetIndex or headerIndex");
 		}
 		this.sheet = sheet;
 		this.headerIndex = headerIndex;
-		this.columns = sheet.getRow(headerIndex-1).cells.stream().map(ExcelCell::stringValue).collect(Collectors.toList());
+		this.columns = sheet
+				.getRow(headerIndex)
+				.cells.stream()
+				.map(ExcelCell::stringValue)
+				.collect(Collectors.toList());
 	}
 
 	/**
 	 * Get the value from the specified column and row.
 	 *
 	 * @param columnName Name of the column.
-	 * @param rowNumber Index of the row.
+	 * @param rowNumber Index (1-based) of the row.
 	 * @return The value in the specified cell.
 	 * @throws NoSuchElementException if the column or row is not found.
 	 */
@@ -83,7 +76,7 @@ public class ExcelTable {
 		int columnIndex = columns.indexOf(columnName);
 		if(columnIndex == -1)
 			throw getColumnNotFoundError(columnName);
-		final int rowIndex = headerIndex + rowNumber-1;
+		final int rowIndex = headerIndex + rowNumber;
 		try {
 			final ExcelRow requestedRow = sheet.getRow(rowIndex);
 			final ExcelCell requestedCell = requestedRow.getCell(columnIndex+1);
@@ -104,6 +97,18 @@ public class ExcelTable {
 	}
 
 	/**
+	 * Read a column's values from a table
+	 * @param columnName Name of the column
+	 * @return Cell list of the column
+	 */
+	public List<ExcelCell> getColumnValues(String columnName){
+		var index = columns.indexOf(columnName);
+		if(index==-1)
+			throw getColumnNotFoundError(columnName);
+		return sheet.readColumn(index);
+	}
+
+	/**
 	 * Get row not found error no such element exception.
 	 *
 	 * @param rowIndex the row index
@@ -120,6 +125,6 @@ public class ExcelTable {
 	 * @return the no such element exception
 	 */
 	private NoSuchElementException getColumnNotFoundError(String columnName){
-		return new NoSuchElementException(columnName + " column not found in list: " + String.join(",", columns));
+		return new NoSuchElementException(String.format("%s column not found in list: %s", columnName, String.join(",", columns)));
 	}
 }

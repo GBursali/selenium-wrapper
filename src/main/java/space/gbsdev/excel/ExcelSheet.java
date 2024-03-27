@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents an Excel sheet within an Excel file. Provides methods to access and manipulate the sheet's content.
@@ -199,5 +200,28 @@ public class ExcelSheet {
 	 */
 	public String read(int rowNumber,int columnNumber){
 		return getRow(rowNumber).read(columnNumber);
+	}
+
+	/**
+	 * Reads the value from a column at the specified number.
+	 * @param columnIndex The index (0-based) of the column from which read the value
+	 * @return The cell list from the column
+	 */
+	public List<ExcelCell> readColumn(int columnIndex){
+		return readColumn(columnIndex,1);
+	}
+
+	/**
+	 * Reads the value from a column at the specified number. Starting from tthe given index
+	 * @param columnIndex The index (0-based) of the column from which read the value
+	 * @param headerIndex The index (0 based) of the header row.
+	 * @return The cell list from the column
+	 */
+	public List<ExcelCell> readColumn(int columnIndex,int headerIndex){
+		return rows.stream()
+				.skip(headerIndex)
+				.map(x->x.cells)
+				.map(x->x.get(columnIndex))
+				.collect(Collectors.toList());
 	}
 }

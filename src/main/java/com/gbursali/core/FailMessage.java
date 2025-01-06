@@ -1,6 +1,6 @@
-package space.gbsdev.core;
+package com.gbursali.core;
 
-import space.gbsdev.strings.Placeholders;
+import com.gbursali.strings.Placeholders;
 
 /**
  * Utility class that contains default fail messages.

@@ -1,7 +1,7 @@
-package space.gbsdev.locators.chain;
+package com.gbursali.locators.chain;
 
 import org.openqa.selenium.By;
-import space.gbsdev.strings.MatchType;
+import com.gbursali.strings.MatchType;
 
 public class Css extends Locator<Css> {
     /**

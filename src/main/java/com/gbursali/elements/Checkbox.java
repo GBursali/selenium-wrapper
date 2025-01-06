@@ -1,4 +1,4 @@
-package space.gbsdev.elements;
+package com.gbursali.elements;
 
 import org.openqa.selenium.By;
 

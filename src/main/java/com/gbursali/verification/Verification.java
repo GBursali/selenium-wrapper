@@ -1,9 +1,9 @@
-package space.gbsdev.verification;
+package com.gbursali.verification;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import space.gbsdev.core.Utilities;
-import space.gbsdev.strings.Placeholders;
+import com.gbursali.core.Utilities;
+import com.gbursali.strings.Placeholders;
 
 import java.nio.file.Path;
 import java.util.Objects;

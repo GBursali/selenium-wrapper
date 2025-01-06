@@ -2,9 +2,9 @@ import com.google.gson.JsonObject;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import space.gbsdev.core.Utilities;
-import space.gbsdev.strings.Placeholders;
-import space.gbsdev.verification.Verification;
+import com.gbursali.core.Utilities;
+import com.gbursali.strings.Placeholders;
+import com.gbursali.verification.Verification;
 
 import java.nio.file.Path;
 

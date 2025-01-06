@@ -1,4 +1,4 @@
-package space.gbsdev.excel;
+package com.gbursali.excel;
 
 import java.util.List;
 import java.util.NoSuchElementException;

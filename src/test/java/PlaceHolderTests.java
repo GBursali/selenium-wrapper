@@ -1,6 +1,6 @@
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import space.gbsdev.strings.Placeholders;
+import com.gbursali.strings.Placeholders;
 
 public class PlaceHolderTests {
     @Test

@@ -1,4 +1,4 @@
-package space.gbsdev.locators.chain;
+package com.gbursali.locators.chain;
 
 import org.openqa.selenium.By;
 

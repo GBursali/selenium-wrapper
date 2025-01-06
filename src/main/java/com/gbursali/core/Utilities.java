@@ -1,4 +1,4 @@
-package space.gbsdev.core;
+package com.gbursali.core;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

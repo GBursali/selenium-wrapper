@@ -1,4 +1,4 @@
-package space.gbsdev.elements;
+package com.gbursali.elements;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -60,7 +60,7 @@ public class Dropdown extends HTMLElement {
      */
     public Optional<HTMLElement> getOption(String text) {
         String optionLocator = dropdownOptionsLocator + String.format("//div[.='%s']", text);
-        return HTMLElement.findElement(By.xpath(optionLocator));
+        return findElement(By.xpath(optionLocator));
     }
 
     /**
@@ -77,7 +77,7 @@ public class Dropdown extends HTMLElement {
      */
     public Optional<HTMLElement> getOptionContains(String text) {
         String locator = dropdownOptionsLocator + String.format("//div[contains(.,'%s')]", text);
-        return HTMLElement.findElement(By.xpath(locator));
+        return findElement(By.xpath(locator));
     }
 
     public void verifyOptions(String attributeToCheck, List<String> expected) {
@@ -133,16 +133,16 @@ public class Dropdown extends HTMLElement {
      * @return true if the dropdown is open, false otherwise
      */
     public static boolean isOpen() {
-        return HTMLElement.findElement(By.cssSelector("div[data-ref=\"menu-dropdown\"]")).isPresent();
+        return findElement(By.cssSelector("div[data-ref=\"menu-dropdown\"]")).isPresent();
     }
 
     /**
      * Closes a popup by clicking on its header if it exists, otherwise clicks on the first h1 element found on the page.
      */
     public static void close() {
-        HTMLElement.findElement(By.cssSelector("div.popup h1"))
-                .or(() -> HTMLElement.findElement(By.cssSelector("h1")))
-                .or(() -> HTMLElement.findElement(By.cssSelector("h3")))
+        findElement(By.cssSelector("div.popup h1"))
+                .or(() -> findElement(By.cssSelector("h1")))
+                .or(() -> findElement(By.cssSelector("h3")))
                 .ifPresent(HTMLElement::click);
     }
 

@@ -1,4 +1,4 @@
-package space.gbsdev.locators;
+package com.gbursali.locators;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.openqa.selenium.By;

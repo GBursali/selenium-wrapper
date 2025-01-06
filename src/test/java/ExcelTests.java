@@ -1,8 +1,8 @@
 import org.junit.Test;
-import space.gbsdev.excel.ExcelCell;
-import space.gbsdev.excel.ExcelFile;
-import space.gbsdev.excel.ExcelSheet;
-import space.gbsdev.excel.ExcelTable;
+import com.gbursali.excel.ExcelCell;
+import com.gbursali.excel.ExcelFile;
+import com.gbursali.excel.ExcelSheet;
+import com.gbursali.excel.ExcelTable;
 
 import java.io.File;
 import java.nio.file.Path;

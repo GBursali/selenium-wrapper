@@ -1,4 +1,4 @@
-package space.gbsdev.excel;
+package com.gbursali.excel;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;

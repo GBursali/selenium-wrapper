@@ -1,4 +1,4 @@
-package space.gbsdev.strings;
+package com.gbursali.strings;
 
 public enum MatchType{
     IS,

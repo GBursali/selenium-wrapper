@@ -1,4 +1,4 @@
-package space.gbsdev.strings;
+package com.gbursali.strings;
 
 import org.apache.hc.core5.function.Supplier;
 

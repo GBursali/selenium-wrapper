@@ -1,4 +1,4 @@
-package space.gbsdev.data;
+package com.gbursali.data;
 
 import java.util.ArrayList;
 import java.util.List;

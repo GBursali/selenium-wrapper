@@ -1,7 +1,7 @@
 import org.junit.Test;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
-import space.gbsdev.locators.LocatorFinder;
+import com.gbursali.locators.LocatorFinder;
 
 import java.nio.file.Path;
 

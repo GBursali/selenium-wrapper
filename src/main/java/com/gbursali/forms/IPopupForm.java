@@ -1,4 +1,4 @@
-package space.gbsdev.forms;
+package com.gbursali.forms;
 
 public interface IPopupForm<T> {
     /**

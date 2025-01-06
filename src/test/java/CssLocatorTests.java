@@ -1,6 +1,6 @@
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import space.gbsdev.locators.chain.Css;
+import com.gbursali.locators.chain.Css;
 
 public class CssLocatorTests {
     @Test

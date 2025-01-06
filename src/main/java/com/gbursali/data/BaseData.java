@@ -1,4 +1,4 @@
-package space.gbsdev.data;
+package com.gbursali.data;
 
 public class BaseData {
 

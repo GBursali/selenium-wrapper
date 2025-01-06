@@ -6,7 +6,7 @@
 
     <groupId>space.gbsdev</groupId>
     <artifactId>selenium-wrapper</artifactId>
-    <version>1.0</version>
+    <version>1.0.21</version>
     <description>
         A Wrapper framework for Selenium to increase readability, and adding more features for the testing purposes.
     </description>
